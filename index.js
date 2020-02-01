@@ -10,7 +10,7 @@ app.use(
 );
 app.options('*', cors());
 
-app.get('/', (req, res) => res.send('Working!!!'));
+app.get('/', (req, res) => res.send('Prueba de Selección Subgerencia Desarrollo Tecnológico Gerencia de Sistemas Retail Omnicanal'));
 
 app.listen(process.env.PORT || 3000, function() {
     console.log('server running on port 3000', '');
