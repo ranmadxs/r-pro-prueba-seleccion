@@ -1,0 +1,15 @@
+{
+  "name": "r-pro-prueba",
+  "version": "1.0.0",
+  "description": "Prueba R-Pro",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4"
+  },
+  "author": "Edgar Sánchez",
+  "license": "ISC"
+}
