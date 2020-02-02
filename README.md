@@ -36,7 +36,7 @@ docker run -p 3000:3000 -d r-pro-prueba
 
 ### Test API Publica
 
-* Abrir URL en el Browser [Heroku API](https://limitless-bastion-81935.herokuapp.com)
+* Abrir URL en el Browser [r-pro-prueba-seleccion API](https://limitless-bastion-81935.herokuapp.com)
 
 ### Test Ambiente Local
 
