@@ -4,6 +4,7 @@ var cors = require('cors');
 var pregunta01 = require('./src/pregunta01');
 var pregunta02 = require('./src/pregunta02');
 var pregunta03 = require('./src/pregunta03');
+var pregunta05 = require('./src/pregunta05');
 
 app.use(
     cors({
@@ -68,6 +69,18 @@ app.get('/pregunta02/d/operacionSuma', function (req, res) {
 app.get('/pregunta03/a/:node1/connected/:node2', function (req, res) {
    res.writeHead(200, {'Content-Type': 'application/json'});
    var response = pregunta03.a(req.params.node1, req.params.node2);
+   res.end(JSON.stringify(response));
+});
+
+app.get('/pregunta05/a/escaleras/:peldanios', function (req, res) {
+   res.writeHead(200, {'Content-Type': 'application/json'});
+   var response = pregunta05.a(req.params.peldanios);
+   res.end(JSON.stringify(response));
+});
+
+app.get('/pregunta05/b/subconjuntos', function (req, res) {
+   res.writeHead(200, {'Content-Type': 'application/json'});
+   var response = pregunta05.b();
    res.end(JSON.stringify(response));
 });
 
