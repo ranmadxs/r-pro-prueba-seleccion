@@ -1,15 +1,27 @@
 {
-  "name": "r-pro-prueba",
-  "version": "1.0.0",
-  "description": "Prueba R-Pro",
-  "main": "index.js",
-  "scripts": {
-    "test": "test"
-  },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.16.4"
-  },
-  "author": "Edgar Sánchez",
-  "license": "ISC"
+    "name": "r-pro-prueba",
+    "version": "1.0.0",
+    "description": "Prueba R-Pro",
+    "keywords": [
+        "node.js",
+        "express.js",
+        "swagger"
+    ],
+    "main": "index.js",
+    "scripts": {
+        "test": "test"
+    },
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "cors": "^2.8.5",
+        "express": "^4.16.4",
+        "method-override": "^3.0.0",
+        "mongoose": "^5.8.11",
+        "swagger-ui-express": "2.0.6"
+    },
+    "author": "Edgar Sánchez",
+    "license": "ISC",
+    "engines": {
+        "node": ">=6.11.0"
+    }
 }

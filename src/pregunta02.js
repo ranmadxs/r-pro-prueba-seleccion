@@ -4,7 +4,7 @@ const Nodo = require('./Nodo');
 
 module.exports = {
     a: function () {
-        var lista = createListaEnlazada([7, 1, 6, 9, 12]);
+        var lista = createListaEnlazada([1, 5, 2, 13, 7, 3]);
         var listaEnlazada = {
             "valores": lista.toString(),
             "lista": lista
@@ -24,14 +24,14 @@ module.exports = {
         }
         var ret = {
             "valores": listaEnlazada.toString(),
-            "listaOriginal": listaEnlazada}
-        ret.nodoBorrado = deleteNode ? deleteNode.data : null;
+            "lista": listaEnlazada}
+        ret.valorNodoBorrado = deleteNode ? deleteNode.data : null;
         return ret;
     },
     c: function () {
         var number1 = parseInt(listAsArray(createListaEnlazada([7, 1, 6])).reverse().join(''));
         var number2 = parseInt(listAsArray(createListaEnlazada([5, 9, 2])).reverse().join(''));
-        return numberToListaEnlazada(number1, number2);
+        return numberToListaEnlazada(number1, number2, true);
     },
 
     d: function () {
@@ -42,11 +42,14 @@ module.exports = {
 
 };
 
-function numberToListaEnlazada(number1, number2) {
+function numberToListaEnlazada(number1, number2, reversa=false) {
     var number3 = (number1 + number2).toString();
     var arreglo = [];
     for (var i = 0; i < number3.length; i++) {
         arreglo.push(number3[i]);
+    }
+    if(reversa === true){
+        arreglo = arreglo.reverse();
     }
     var listaEnlazada = createListaEnlazada(arreglo);
     var listaEnlazadaRet = {

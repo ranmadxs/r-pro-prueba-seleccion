@@ -1,13 +1,8 @@
 
 module.exports = {
     a: function (n) {
-        /*
-         var promisedLoad = obtenerCombinatorias(n);
-         promisedLoad.then(function (result) {
-         return result;
-         });
-         */
-        return obtenerCombinatorias(n);
+
+        return {"totalCombinatoria": obtenerCombinatorias(n)};
 
     },
     b: function () {
