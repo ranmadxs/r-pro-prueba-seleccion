@@ -22,6 +22,6 @@
     "author": "Edgar Sánchez",
     "license": "ISC",
     "engines": {
-        "node": ">=6.11.0"
+        "node": ">=8.16.0"
     }
 }
