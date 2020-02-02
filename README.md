@@ -12,7 +12,19 @@ Implementación de la Prueba de selección de R-PRO
 
 * Instalando dependencias `npm i`
 * Corriendo servidor local puerto 3000 `node index`
-* Abrir URL en el Browser [http://localhost:3000!](http://localhost:3000)
+* Abrir URL en el Browser [http://localhost:3000](http://localhost:3000)
 
 ## Uso con contenedores Docker
+
+### Build
+
+```
+docker build -t r-pro-prueba .
+```
+
+### Run
+
+```
+docker run -p 3000:3000 -d r-pro-prueba
+```
 
