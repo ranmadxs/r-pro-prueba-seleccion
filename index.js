@@ -40,9 +40,27 @@ app.get('/pregunta02/a/', function (req, res) {
    res.end(JSON.stringify(response));
 });
 
-app.get('/pregunta02/b/borrar/:valorNodo', function (req, res) {
+app.get('/pregunta02/b/borrarPosicion/:posicionNodo', function (req, res) {
    res.writeHead(200, {'Content-Type': 'application/json'});
-   var response = pregunta02.b();
+   var response = pregunta02.b(req.params.posicionNodo, true);
+   res.end(JSON.stringify(response));
+});
+
+app.get('/pregunta02/b/borrarValor/:valorNodo', function (req, res) {
+   res.writeHead(200, {'Content-Type': 'application/json'});
+   var response = pregunta02.b(req.params.valorNodo);
+   res.end(JSON.stringify(response));
+});
+
+app.get('/pregunta02/c/operacionSumaReversa', function (req, res) {
+   res.writeHead(200, {'Content-Type': 'application/json'});
+   var response = pregunta02.c();
+   res.end(JSON.stringify(response));
+});
+
+app.get('/pregunta02/d/operacionSuma', function (req, res) {
+   res.writeHead(200, {'Content-Type': 'application/json'});
+   var response = pregunta02.c();
    res.end(JSON.stringify(response));
 });
 

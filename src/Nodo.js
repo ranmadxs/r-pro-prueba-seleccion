@@ -39,71 +39,95 @@ class ListaEnlazada {
         return this;
     }
 
+    deteleByPos(position) {
+        if (!this.head) {
+            return null;
+        }
+        let nodoBorrado = null;
+        var pos = 1;
+
+        while (this.head && pos === position) {
+            nodoBorrado = this.head;
+            this.head = this.head.siguiente;
+            console.log("Borrando la cabecera");
+            break;
+        }
+        pos++;
+        let nodoActual = this.head;
+
+        if (nodoActual !== null) {
+            while (nodoActual.siguiente) {
+                if (pos === position) {
+                    console.log("Borrando " + nodoActual.data);
+                    nodoBorrado = nodoActual.siguiente;
+                    nodoActual.siguiente = nodoActual.siguiente.siguiente;
+
+                } else {
+                    nodoActual = nodoActual.siguiente;
+                }
+                pos++;
+            }
+        }
+
+        if (pos === position) {
+            this.tail = nodoActual;
+        }
+
+        return nodoBorrado;
+
+    }
+
     /**
      * Borra un nodo y lo devuelve
      * @param {*} value
      * @return {ListaEnlazada}
      */
-    delete(value) {
+    deleteByValue(value) {
         if (!this.head) {
             return null;
         }
 
-        let deletedNode = null;
+        let nodoBorrado = null;
 
         while (this.head && this.head.data === value) {
-            deletedNode = this.head;
+            nodoBorrado = this.head;
             this.head = this.head.siguiente;
         }
-        
 
-        let currentNode = this.head;
 
-        /*
-        if (currentNode !== null) {
-            while (currentNode.siguiente) {
-                if (currentNode.siguiente.data === value) {
-                    deletedNode = currentNode.siguiente;
-                    currentNode.siguiente = currentNode.siguiente.next;
+        let nodoActual = this.head;
+
+
+        if (nodoActual !== null) {
+            while (nodoActual.siguiente) {
+                if (nodoActual.siguiente.data === value) {
+                    nodoBorrado = nodoActual.siguiente;
+                    nodoActual.siguiente = nodoActual.siguiente.siguiente;
                 } else {
-                    currentNode = currentNode.siguiente;
+                    nodoActual = nodoActual.siguiente;
                 }
             }
         }
 
         if (this.tail.data === value) {
-            this.tail = currentNode;
+            this.tail = nodoActual;
         }
-*/
-        return deletedNode;
+
+        return nodoBorrado;
     }
 
-    /**
-     * Busca el nodo que posea el valor indicado y lo retorna
-     * @param {*} valor
-     * @param {function} [callback]
-     * @return {Nodo}
-     
-     find( { valor = undefined, callback = undefined }) {
-     if (!this.head) {
-     return null;
-     }
-     
-     let nodoActual = this.head;
-     
-     while (nodoActual) {
-     if (callback && callback(nodoActual.data)) {
-     return nodoActual;
-     }
-     
-     if (valor !== undefined && this.compare.equal(nodoActual.data, valor)) {
-     return nodoActual;
-     }
-     nodoActual = nodoActual.siguiente;
-     }
-     return null;
-     }
-     */
+    toString(callback) {
+        let nodoActual = this.head;
+        var arrayList1 = [];
+        if (nodoActual !== null) {
+            while (nodoActual) {
+                arrayList1.push(nodoActual.data);
+                nodoActual = nodoActual.siguiente;
+            }
+        }
+        return "("+ arrayList1.join("->") + ")";
+    }
+
 }
 
 module.exports.ListaEnlazada = ListaEnlazada;
