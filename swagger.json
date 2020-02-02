@@ -28,9 +28,6 @@
             "description": "Algoritmos"
         }
     ],
-    "schemes": [
-        "http"
-    ],
     "consumes": [
         "application/json"
     ],
