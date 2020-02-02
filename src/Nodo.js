@@ -22,6 +22,18 @@ class ListaEnlazada {
         this.tail = null;
     }
 
+    toString() {
+        let nodoActual = this.head;
+        var arrayList1 = [];
+        if (nodoActual !== null) {
+            while (nodoActual) {
+                arrayList1.push(nodoActual.data);
+                nodoActual = nodoActual.siguiente;
+            }
+        }
+        return "(" + arrayList1.join("->") + ")";
+    }
+
     /**
      * Agrega un nodo a la Lista Enlazada
      * @param {*} valorNodo
@@ -114,18 +126,6 @@ class ListaEnlazada {
         }
 
         return nodoBorrado;
-    }
-
-    toString(callback) {
-        let nodoActual = this.head;
-        var arrayList1 = [];
-        if (nodoActual !== null) {
-            while (nodoActual) {
-                arrayList1.push(nodoActual.data);
-                nodoActual = nodoActual.siguiente;
-            }
-        }
-        return "("+ arrayList1.join("->") + ")";
     }
 
 }

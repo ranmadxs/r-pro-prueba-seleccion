@@ -3,6 +3,7 @@ const app = express();
 var cors = require('cors');
 var pregunta01 = require('./src/pregunta01');
 var pregunta02 = require('./src/pregunta02');
+var pregunta03 = require('./src/pregunta03');
 
 app.use(
     cors({
@@ -61,6 +62,12 @@ app.get('/pregunta02/c/operacionSumaReversa', function (req, res) {
 app.get('/pregunta02/d/operacionSuma', function (req, res) {
    res.writeHead(200, {'Content-Type': 'application/json'});
    var response = pregunta02.c();
+   res.end(JSON.stringify(response));
+});
+
+app.get('/pregunta03/a/:node1/connected/:node2', function (req, res) {
+   res.writeHead(200, {'Content-Type': 'application/json'});
+   var response = pregunta03.a(req.params.node1, req.params.node2);
    res.end(JSON.stringify(response));
 });
 
