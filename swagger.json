@@ -1,0 +1,400 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "API Node.js R-PRO Prueba",
+        "description": "Prueba de Selección R-PRO, Edgar Sánchez, +56 986825231, grineldosanchez@yahoo.es",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "Pregunta01",
+            "description": "Estructuras de datos -> strings y matrices"
+        },
+        {
+            "name": "Pregunta02",
+            "description": "Estructuras de datos -> listas ligadas"
+        },
+        {
+            "name": "Pregunta03",
+            "description": "Estructuras de datos -> Arboles y Grafos"
+        },
+        {
+            "name": "Pregunta05",
+            "description": "Algoritmos"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/pregunta01/a/{palabra}": {
+            "parameters": [
+                {
+                    "name": "palabra",
+                    "in": "path",
+                    "required": true,
+                    "description": "String para revisar la cantidad de caracteres",
+                    "type": "string",
+                    "default": "CASA"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Pregunta01"
+                ],
+                "summary": "Determina si un String no tiene caracteres repetidas, es key sensitive",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/RespPreg1a"
+                        }
+                    }
+                }
+            }
+        },
+        "/pregunta01/b/{palabra1}/compare/{palabra2}": {
+            "parameters": [
+                {
+                    "name": "palabra1",
+                    "in": "path",
+                    "required": true,
+                    "description": "",
+                    "type": "string",
+                    "default": "RARO"
+                },
+                {
+                    "name": "palabra2",
+                    "in": "path",
+                    "required": true,
+                    "description": "",
+                    "type": "string",
+                    "default": "ORAR"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Pregunta01"
+                ],
+                "summary": "Método que decide si un string (palabra2) es substring de palabra1",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/RespPreg1b"
+                        }
+                    }
+                }
+            }
+        },
+        "/pregunta01/c/": {
+            "get": {
+                "tags": [
+                    "Pregunta01"
+                ],
+                "summary": "Rotar Matriz 90º, pj: [['a11', 'a12'], ['a21', 'a22']]",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/RespPreg1c"
+                        }
+                    }
+                }
+            }
+        },
+        "/pregunta02/a/": {
+            "get": {
+                "tags": [
+                    "Pregunta02"
+                ],
+                "summary": "Crea una lista enlazada con los elementos [1, 5, 2, 13, 7, 3]",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/RespPreg2a"
+                        }
+                    }
+                }
+            }
+        },
+        "/pregunta02/b/borrarPosicion/{posicionNodo}": {
+            "parameters": [
+                {
+                    "name": "posicionNodo",
+                    "in": "path",
+                    "required": true,
+                    "description": "Posición del nodo a ser borrado",
+                    "type": "integer",
+                    "default": 1
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Pregunta02"
+                ],
+                "summary": "Retorna y elimina el n-esimo elemento de una lista ligada simple",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/RespPreg2b"
+                        }
+                    }
+                }
+            }
+        },
+        "/pregunta02/c/operacionSumaReversa/": {
+            "get": {
+                "tags": [
+                    "Pregunta02"
+                ],
+                "summary": "Sume dos números y retorne la suma como una lista ligada, ej:  (7-> 1-> 6) + (5-> 9 -> 2) = (2-> 1-> 9)",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/RespPreg2a"
+                        }
+                    }
+                }
+            }
+        },
+        "/pregunta02/d/operacionSuma/": {
+            "get": {
+                "tags": [
+                    "Pregunta02"
+                ],
+                "summary": "Análogo a la anterior pero almacenado de forma directa, ej:  (7-> 1-> 6) + (5-> 9 -> 2) = (9-> 1-> 2)",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/RespPreg2a"
+                        }
+                    }
+                }
+            }
+        },
+        "/pregunta03/a/{node1}/connected/{node2}": {
+            "parameters": [
+                {
+                    "name": "node1",
+                    "in": "path",
+                    "required": true,
+                    "description": "",
+                    "type": "integer",
+                    "default": 1
+                },
+                {
+                    "name": "node2",
+                    "in": "path",
+                    "required": true,
+                    "description": "",
+                    "type": "integer",
+                    "default": 2
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Pregunta03"
+                ],
+                "summary": "Determina si dos nodos estan conectados, en la matrix=[[0, 1, 0, 0], [0, 0, 1, 0], [1, 0, 0, 0], [0, 0, 1, 0]]",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/RespPreg3a"
+                        }
+                    }
+                }
+            }
+        },
+        "/pregunta05/a/escaleras/{peldanios}": {
+            "parameters": [
+                {
+                    "name": "peldanios",
+                    "in": "path",
+                    "required": true,
+                    "description": "Total de peldaños de la escalera",
+                    "type": "integer",
+                    "default": 7
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Pregunta05"
+                ],
+                "summary": "Método que cuenta cuántas combinaciones posibles de saltos pueden hacerse de 3, 2 y 1 escalón",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/RespPreg5a"
+                        }
+                    }
+                }
+            }
+        },
+        "/pregunta05/b/subconjuntos": {
+            "get": {
+                "tags": [
+                    "Pregunta05"
+                ],
+                "summary": "Imprimir todos los subconjuntos de un conjunto, pj: [1, 2, 3, 4, 5]",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/RespPreg5b"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "RespPreg1a": {
+            "properties": {
+                "string": {
+                    "type": "string"
+                },
+                "cumple": {
+                    "type": "boolean"
+                },
+                "caracteres": {
+                    "type": "array",
+                    "$ref": "#/definitions/arregloCaracteres"
+                }
+            }
+        },
+        "RespPreg1b": {
+            "properties": {
+                "palabra1": {
+                    "type": "string"
+                },
+                "palabra2": {
+                    "type": "string"
+                },
+                "contenida": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "RespPreg1c": {
+            "properties": {
+                "matriz": {
+                    "type": "array"
+                }
+            }
+        },
+        "RespPreg2a": {
+            "properties": {
+                "valores": {
+                    "type": "string"
+                },
+                "lista": {
+                    "type": "object",
+                    "$ref": "#/definitions/nodo"
+                }
+            }
+        },
+        "RespPreg2b": {
+            "properties": {
+                "valores": {
+                    "type": "string"
+                },
+                "lista": {
+                    "type": "object",
+                    "$ref": "#/definitions/nodo"
+                }, 
+                "valorNodoBorrado": {
+                    "type": "integer"
+                }
+            }
+        },   
+        "RespPreg3a": {
+            "properties": {
+                "matriz": {
+                    "type": "string"
+                },
+                "arregloGrafo": {
+                    "type": "array",
+                    "$ref": "#/definitions/arregloGrafo"
+                },
+                "caracteres": {
+                    "type": "array",
+                    "$ref": "#/definitions/arregloCaracteres"
+                }
+            }
+        },   
+        "RespPreg5a": {
+            "properties": {
+                "totalCombinatoria": {
+                    "type": "integer"
+                }
+            }
+        },    
+        "RespPreg5b": {
+            "properties": {
+                "arregloSubconjuntos": {
+                    "type": "array"
+                }
+            }  
+        },
+        "nodoGrafo": {
+            "properties": {
+                "from": {
+                    "type": "integer"
+                },
+                "to": {
+                    "type": "integer"
+                },
+                "connected": {
+                    "type": "boolean"
+                } 
+            }
+        },
+        "arregloGrafo": {
+            "type": "array",
+            "$ref": "#/definitions/nodoGrafo"
+        },        
+        "nodo": {
+            "properties": {
+                "siguiente": {
+                    "type": "object",
+                    "$ref": "#/definitions/nodo"
+                },
+                "data": {
+                    "type": "integer"
+                }
+            }
+        },
+        "caracter": {
+            "properties": {
+                "letra": {
+                    "type": "string"
+                },
+                "cantidad": {
+                    "type": "integer"
+                }
+            }
+        },
+        "arregloCaracteres": {
+            "type": "array",
+            "$ref": "#/definitions/caracter"
+        }
+    }
+}

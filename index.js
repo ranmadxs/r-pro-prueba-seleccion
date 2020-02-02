@@ -16,7 +16,10 @@ app.use(
         );
 app.options('*', cors());
 
-app.get('/', (req, res) => res.send('Prueba de Selección Subgerencia Desarrollo Tecnológico Gerencia de Sistemas Retail Omnicanal'));
+app.get('/', (req, res) => 
+    res.redirect('/api-docs')   
+    //res.send('Prueba de Selección Subgerencia Desarrollo Tecnológico Gerencia de Sistemas Retail Omnicanal')
+);
 
 app.get('/pregunta01/a/:palabra', function (req, res) {
     res.writeHead(200, {'Content-Type': 'application/json'});
