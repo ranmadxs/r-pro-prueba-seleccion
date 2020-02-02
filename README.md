@@ -20,8 +20,6 @@ npm i
 node index
 ```
 
-* Abrir URL en el Browser [http://localhost:3000](http://localhost:3000)
-
 ## Uso con contenedores Docker
 
 ### Build
