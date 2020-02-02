@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 var cors = require('cors');
+var pregunta01 = require('./src/pregunta01');
+var pregunta02 = require('./src/pregunta02');
 
 app.use(
     cors({
@@ -12,9 +14,35 @@ app.options('*', cors());
 
 app.get('/', (req, res) => res.send('Prueba de Selección Subgerencia Desarrollo Tecnológico Gerencia de Sistemas Retail Omnicanal'));
 
-app.get('/pregunta01/:palabra', function (req, res) {
+app.get('/pregunta01/a/:palabra', function (req, res) {
    res.writeHead(200, {'Content-Type': 'application/json'});
-   var response = { "response" : "This is GET method with palabra=" + req.params.palabra + "." };
+   var response = pregunta01.a(req.params.palabra);
+   res.end(JSON.stringify(response));
+});
+
+app.get('/pregunta01/b/:palabra1/compare/:palabra2', function (req, res) {
+   res.writeHead(200, {'Content-Type': 'application/json'});
+   var response = pregunta01.b(req.params.palabra1, req.params.palabra2);
+   res.end(JSON.stringify(response));
+});
+
+app.get('/pregunta01/c/', function (req, res) {
+   res.writeHead(200, {'Content-Type': 'application/json'});
+   //var matrix = [['a11', 'a12', 'a13', 'a14'], ['a21', 'a22', 'a23', 'a24'], ['a31', 'a32', 'a33', 'a34'], ['a41','a42','a43','a44']];
+   var matrix = [['a11', 'a12'], ['a21', 'a22']];
+   var response = pregunta01.c(matrix);
+   res.end(JSON.stringify(response));
+});
+
+app.get('/pregunta02/a/', function (req, res) {
+   res.writeHead(200, {'Content-Type': 'application/json'});
+   var response = pregunta02.a();
+   res.end(JSON.stringify(response));
+});
+
+app.get('/pregunta02/b/borrar/:valorNodo', function (req, res) {
+   res.writeHead(200, {'Content-Type': 'application/json'});
+   var response = pregunta02.b();
    res.end(JSON.stringify(response));
 });
 
