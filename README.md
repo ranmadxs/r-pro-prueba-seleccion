@@ -22,7 +22,7 @@ node index
 
 ## Uso con contenedores Docker
 
-### Build
+### Build Docker
 ```
 docker build -t r-pro-prueba .
 ```
